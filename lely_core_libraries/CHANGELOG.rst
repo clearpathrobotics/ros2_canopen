@@ -7,8 +7,8 @@ Changelog for package lely_core_libraries
 * Update the lely_core_libraries hash to the latest.
 * Contributors: Chris Lalancette, Vishnuprasad Prachandabhanu
 
-Forthcoming
------------
+0.3.1 (2025-05-22)
+------------------
 * Do not export deprecated Lely IO library (`#318 <https://github.com/clearpathrobotics/ros2_canopen/issues/318>`_)
 * Update lely-core into CMakeLists.txt (`#307 <https://github.com/clearpathrobotics/ros2_canopen/issues/307>`_)
   fix typo in mkjmp documentation

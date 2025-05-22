@@ -7,8 +7,8 @@ Changelog for package canopen_base_driver
 * Add timeouts
 * Contributors: Vishnuprasad Prachandabhanu
 
-Forthcoming
------------
+0.3.1 (2025-05-22)
+------------------
 * Add boot timeout parameter to lely driver
 * Contributors: Luis Camero
 
