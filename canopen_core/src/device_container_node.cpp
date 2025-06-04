@@ -20,7 +20,7 @@ using namespace ros2_canopen;
 int main(int argc, char const * argv[])
 {
   rclcpp::init(argc, argv);
-  auto exec = std::make_shared<rclcpp::executors::MultiThreadedExecutor>();
+  auto exec = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
   auto device_container = std::make_shared<DeviceContainer>(exec);
   std::thread spinThread([&device_container]() { device_container->init(); });
   exec->add_node(device_container);
