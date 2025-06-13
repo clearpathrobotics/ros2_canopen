@@ -577,7 +577,7 @@ public:
       },
       this->sdo_timeout,
       ec);
-    if (ec) throw lely::canopen::SdoError(0, data.index_, data.subindex_, ec, "LelyDriverBridge::async_sdo_read_typed");
+    if (ec) throw lely::canopen::SdoError(0, idx, subidx, ec, "LelyDriverBridge::async_sdo_read_typed");
     return prom->get_future();
   }
 
