@@ -555,6 +555,7 @@ public:
       this->sdo_cond.notify_one();
       return prom->get_future();
     }
+    ::std::error_code ec;
     this->SubmitRead<T>(
       idx, subidx,
       [this, prom](uint8_t id, uint16_t idx, uint8_t subidx, ::std::error_code ec, T value) mutable
@@ -574,7 +575,9 @@ public:
         this->running = false;
         this->sdo_cond.notify_one();
       },
-      this->sdo_timeout);
+      this->sdo_timeout,
+      ec);
+    if (ec) throw lely::canopen::SdoError(0, data.index_, data.subindex_, ec, "LelyDriverBridge::async_sdo_read_typed");
     return prom->get_future();
   }
 
@@ -748,6 +751,7 @@ public:
   template <typename T>
   void submit_read(COData data)
   {
+    ::std::error_code ec;
     this->SubmitRead<T>(
       data.index_, data.subindex_,
       [this](uint8_t id, uint16_t idx, uint8_t subidx, ::std::error_code ec, T value) mutable
@@ -769,7 +773,9 @@ public:
         this->running = false;
         this->sdo_cond.notify_one();
       },
-      this->sdo_timeout);
+      this->sdo_timeout,
+      ec);
+    if (ec) throw lely::canopen::SdoError(0, data.index_, data.subindex_, ec, "LelyDriverBridge::submit_read");
   }
 
   template <typename T>
