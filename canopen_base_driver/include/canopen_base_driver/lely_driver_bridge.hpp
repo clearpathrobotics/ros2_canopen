@@ -446,7 +446,7 @@ public:
     std::unique_lock<std::mutex> lck(sdo_mutex);
     if (running)
     {
-      sdo_cond.wait(lck);
+      sdo_cond.wait_for(lck, this->sdo_timeout);
     }
     running = true;
 
@@ -532,7 +532,7 @@ public:
     std::unique_lock<std::mutex> lck(sdo_mutex);
     if (running)
     {
-      sdo_cond.wait(lck);
+      sdo_cond.wait_for(lck, this->sdo_timeout);
     }
     running = true;
 
@@ -682,7 +682,7 @@ public:
       return true;
     }
     std::unique_lock<std::mutex> lck(boot_mtex);
-    boot_cond.wait_for(lck, boot_timeout);
+    boot_cond.wait_for(lck, this->boot_timeout);
     if ((boot_status != 0) && (boot_status != 'L'))
     {
       throw std::system_error(boot_status, LelyBridgeErrCategory(), "Boot Issue");
