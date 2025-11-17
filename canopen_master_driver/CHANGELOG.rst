@@ -7,6 +7,9 @@ Changelog for package canopen_master_driver
 * Add timeouts
 * Contributors: Vishnuprasad Prachandabhanu
 
+Forthcoming
+-----------
+
 0.3.2 (2025-06-24)
 ------------------
 * Add timeout to conditional variable waits

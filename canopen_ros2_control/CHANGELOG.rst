@@ -5,6 +5,9 @@ Changelog for package canopen_ros2_control
 0.2.9 (2024-04-16)
 ------------------
 
+Forthcoming
+-----------
+
 0.3.2 (2025-06-24)
 ------------------
 
